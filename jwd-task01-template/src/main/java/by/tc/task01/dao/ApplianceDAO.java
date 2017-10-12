@@ -31,7 +31,6 @@ public class ApplianceDAO implements IApplianceDAO {
 					return applianceCreatorFactory.getCreator(criteria.getCriteriaType(), properties).create();
 				}
 			}
-
 			return null;
 		} catch (IOException e) {
 			return null;

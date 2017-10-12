@@ -3,7 +3,6 @@ package by.tc.task01.entity.appliance.tabletpc;
 import by.tc.task01.entity.appliance.NotebookAppliance;
 
 public class TabletPC extends NotebookAppliance {
-	// you may add your own code here
 
     private double flashMemoryCapacity;
     private String color;
@@ -50,10 +49,32 @@ public class TabletPC extends NotebookAppliance {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TabletPC)) return false;
+
+        TabletPC tabletPC = (TabletPC) o;
+
+        if (Double.compare(tabletPC.flashMemoryCapacity, flashMemoryCapacity) != 0) return false;
+        return color.equals(tabletPC.color);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(flashMemoryCapacity);
+        result = (int) (temp ^ (temp >>> 32));
+        result = 31 * result + color.hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "TabletPC : " + super.toString() +
                 ", Flash Memory Capacity = " + flashMemoryCapacity +
                 ", Color = '" + color + '\'' +
                 ".";
     }
+
 }

@@ -81,4 +81,5 @@ public class Oven extends KitchenAppliance {
                 ", Depth = " + depth +
                 "." ;
     }
+
 }

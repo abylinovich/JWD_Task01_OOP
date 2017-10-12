@@ -3,7 +3,6 @@ package by.tc.task01.entity.appliance.refrigerator;
 import by.tc.task01.entity.appliance.KitchenAppliance;
 
 public class Refrigerator extends KitchenAppliance {
-	// you may add your own code here
 
     private double freezerCapacity;
     private double overallCapacity;
@@ -51,6 +50,28 @@ public class Refrigerator extends KitchenAppliance {
 
     public double getOverallCapacity() {
         return overallCapacity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Refrigerator)) return false;
+
+        Refrigerator that = (Refrigerator) o;
+
+        if (Double.compare(that.freezerCapacity, freezerCapacity) != 0) return false;
+        return Double.compare(that.overallCapacity, overallCapacity) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(freezerCapacity);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(overallCapacity);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
     @Override

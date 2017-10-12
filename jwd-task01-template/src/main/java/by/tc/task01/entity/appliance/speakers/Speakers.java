@@ -3,7 +3,6 @@ package by.tc.task01.entity.appliance.speakers;
 import by.tc.task01.entity.appliance.ElectricalAppliance;
 
 public class Speakers extends ElectricalAppliance {
-	// you may add your own code here
 
     private double numberOfSpeaker;
     private double cordLength;
@@ -48,6 +47,30 @@ public class Speakers extends ElectricalAppliance {
 
     public String getFrequencyRange() {
         return frequencyRange;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Speakers)) return false;
+
+        Speakers speakers = (Speakers) o;
+
+        if (Double.compare(speakers.numberOfSpeaker, numberOfSpeaker) != 0) return false;
+        if (Double.compare(speakers.cordLength, cordLength) != 0) return false;
+        return frequencyRange.equals(speakers.frequencyRange);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(numberOfSpeaker);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(cordLength);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + frequencyRange.hashCode();
+        return result;
     }
 
     @Override

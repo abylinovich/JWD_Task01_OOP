@@ -1,7 +1,6 @@
 package by.tc.task01.entity.appliance;
 
 public abstract class Appliance {
-	// you may add your own code here
 
     private String producerName;
     private String modelName;
@@ -25,6 +24,29 @@ public abstract class Appliance {
 
     public double getPrice() {
         return price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Appliance)) return false;
+
+        Appliance appliance = (Appliance) o;
+
+        if (Double.compare(appliance.price, price) != 0) return false;
+        if (!producerName.equals(appliance.producerName)) return false;
+        return modelName.equals(appliance.modelName);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = producerName.hashCode();
+        result = 31 * result + modelName.hashCode();
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
     @Override

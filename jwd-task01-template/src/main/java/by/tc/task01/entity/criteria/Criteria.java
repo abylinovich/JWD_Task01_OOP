@@ -12,8 +12,6 @@ public class Criteria<E> {
 		criteria.put(searchCriteria, value);
 	}
 	
-	// you may add your own code here
-
 	public Map<E, Object> getCriteriaMap() {
 		return criteria;
 	}
@@ -25,4 +23,5 @@ public class Criteria<E> {
 	public void setCriteriaType(String criteriaType) {
 		this.criteriaType = criteriaType;
 	}
+
 }

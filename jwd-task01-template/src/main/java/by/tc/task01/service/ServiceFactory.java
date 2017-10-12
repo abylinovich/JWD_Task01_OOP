@@ -1,6 +1,7 @@
 package by.tc.task01.service;
 
 public final class ServiceFactory {
+
 	private static final ServiceFactory instance = new ServiceFactory();
 
 	private final IApplianceService applianceService = new ApplianceService();
