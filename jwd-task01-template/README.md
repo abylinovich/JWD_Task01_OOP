@@ -12,3 +12,7 @@ You need to study the presented implementation, add your code for completed the 
 * The source data for the application is in the file <appliances_db.txt>
  
 * Do not save all the information from the text file in the RAM. Each search request is a new reading of the file.
+
+* Source folder - src/main/java
+
+* Resource folder - src/main/resources
