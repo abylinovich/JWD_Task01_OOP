@@ -32,29 +32,6 @@ public class ApplianceDAO implements IApplianceDAO {
 				}
 			}
 
-//			boolean isBreakCondition = false;
-//			boolean currentApplianceDatabaseRowsFound = false;
-//			while(!isBreakCondition) {
-//				String line = reader.readLine();
-//				if(line != null) {
-//					String[] titleAndProperties = line.split(" : ", 2);
-//					String title = titleAndProperties[0];
-//					if(title.equals(criteria.getCriteriaType())) {
-//						String[] properties = titleAndProperties[1].split(", ");
-//						currentApplianceDatabaseRowsFound = true;
-//						if(checkMatches(properties, criteria)) {
-//							return applianceCreatorFactory.getCreator(title, properties).create();
-//						}
-//					} else {
-//						if(currentApplianceDatabaseRowsFound) {
-//							isBreakCondition = true;
-//						}
-//					}
-//				} else {
-//					isBreakCondition = true;
-//				}
-//
-//			}
 			return null;
 		} catch (IOException e) {
 			return null;

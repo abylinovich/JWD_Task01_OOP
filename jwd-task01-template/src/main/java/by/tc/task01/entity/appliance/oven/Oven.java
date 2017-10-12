@@ -3,7 +3,6 @@ package by.tc.task01.entity.appliance.oven;
 import by.tc.task01.entity.appliance.KitchenAppliance;
 
 public class Oven extends KitchenAppliance {
-	// you may add your own code here
 
     private double capacity;
     private double depth;
@@ -51,6 +50,28 @@ public class Oven extends KitchenAppliance {
 
     public double getDepth() {
         return depth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Oven)) return false;
+
+        Oven oven = (Oven) o;
+
+        if (Double.compare(oven.capacity, capacity) != 0) return false;
+        return Double.compare(oven.depth, depth) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(capacity);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(depth);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
     @Override

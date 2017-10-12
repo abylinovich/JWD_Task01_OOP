@@ -3,7 +3,6 @@ package by.tc.task01.entity.appliance.laptop;
 import by.tc.task01.entity.appliance.NotebookAppliance;
 
 public class Laptop extends NotebookAppliance {
-	// you may add your own code here
 
     private String OS;
     private double CPU;
@@ -56,6 +55,30 @@ public class Laptop extends NotebookAppliance {
 
     public double getSystemMemory() {
         return systemMemory;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Laptop)) return false;
+
+        Laptop laptop = (Laptop) o;
+
+        if (Double.compare(laptop.CPU, CPU) != 0) return false;
+        if (Double.compare(laptop.systemMemory, systemMemory) != 0) return false;
+        return OS.equals(laptop.OS);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = OS.hashCode();
+        temp = Double.doubleToLongBits(CPU);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(systemMemory);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
     @Override
