@@ -184,7 +184,6 @@ public class Main {
 		appliance = service.find(criteriaVacuumCleaner);
 
 		PrintApplianceInfo.print(appliance);
-
 	}
 
 }
