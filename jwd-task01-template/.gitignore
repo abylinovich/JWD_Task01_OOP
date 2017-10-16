@@ -1,6 +1,4 @@
 *.iml
 *.xml
-.idea/*
-target/*
 .idea/
 target/
